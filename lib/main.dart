@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: double.infinity,
               child: Card(
                 color: Colors.blue,
-                child: Text('FIRST 2'),
+                child: Text('FIRST JP'),
               ),
             ),
             TransactionList(_userTransactions),
