@@ -134,6 +134,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      //Why I need to call remove where inside setState if setState without this call works normaly too?
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   void _showNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -160,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
