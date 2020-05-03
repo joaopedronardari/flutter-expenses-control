@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
-  String label;
-  double spendingAmount;
-  double percentOfTotal;
+  final String label;
+  final double spendingAmount;
+  final double percentOfTotal;
 
   ChartBar(
     this.label,
