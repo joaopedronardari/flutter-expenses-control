@@ -43,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    /*Transaction(
+    Transaction(
       id: 't1',
       title: 'New Shoes',
       amount: 180.0,
@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Medicine',
       amount: 70.5,
       date: DateTime.now(),
-    ),*/
+    ),
   ];
 
   List<Transaction> get _recentTransactions {

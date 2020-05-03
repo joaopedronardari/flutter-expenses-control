@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
     initializeDateFormatting();
 
     return Container(
-      height: 450,
+      height: 300,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
@@ -38,46 +38,28 @@ class TransactionList extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 final tx = transactions[index];
                 return Card(
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 10,
+                  elevation: 5,
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 6,
+                  ),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: EdgeInsets.all(6),
+                        child: FittedBox(
+                          child: Text("\$${tx.amount}"),
                         ),
-                        child: Text(
-                          'R\$ ${tx.amount.toStringAsFixed(2)}',
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 2,
-                        )),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            tx.title,
-                            style: Theme.of(context).textTheme.title,
-                          ),
-                          Text(
-                            //DateFormat('dd/MMM/yyyy').format(tx.date),
-                            DateFormat.yMMMMd('pt_BR').format(tx.date),
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
+                    title: Text(
+                      "${tx.title}",
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                    subtitle: Text(
+                      DateFormat.yMMMd('pt_BR').format(tx.date),
+                    ),
                   ),
                 );
               },

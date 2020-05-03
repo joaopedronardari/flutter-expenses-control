@@ -22,8 +22,6 @@ class Chart extends StatelessWidget {
         }
       }
 
-      print(index);
-
       return {
         'day': DateFormat.E('pt_BR').format(weekDay),
         'amount': totalSum,
